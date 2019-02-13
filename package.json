@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "rm -rf docs",
     "build": "react-scripts build",
     "postbuild": "mv -f build docs",
     "test": "react-scripts test",
