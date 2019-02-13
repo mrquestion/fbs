@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "bootstrap": "^4.3.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "js-beautify": "^1.8.9",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "monaco-editor": "^0.15.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "zlib": "^1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
