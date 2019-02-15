@@ -193,10 +193,18 @@ class App extends Component {
       return { x: 1, y: 1 };
     } else if (/^big-electric-pole$/.test(name)) {
       return { x: 2, y: 2 };
+    } else if (/^substation$/.test(name)) {
+      return { x: 2, y: 2 };
     } else if (/^assembling-machine-\d+$/.test(name)) {
       return { x: 3, y: 3 };
     } else if (/^laser-turret$/.test(name)) {
       return { x: 2, y: 2 };
+    } else if (/^solar-panel$/.test(name)) {
+      return { x: 3, y: 3 };
+    } else if (/^accumulator$/.test(name)) {
+      return { x: 2, y: 2 };
+    } else if (/^roboport$/.test(name)) {
+      return { x: 4, y: 4 };
     }
     console.log("error:", name, direction)
     return { x: 1, y: 1 };
