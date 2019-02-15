@@ -13,6 +13,12 @@ import * as monaco from 'monaco-editor';
 
 
 class App extends Component {
+  state = {
+    editor: null,
+    blueprint: '',
+    json: {},
+  }
+
   constructor() {
     super();
 
@@ -20,13 +26,7 @@ class App extends Component {
       this.onResize,
       this.onClickConvert,
     ]).forEach(x => this[x.name] = x.bind(this)).value();
-
-    this.state = {
-      editor: null,
-      blueprint: '',
-      json: {},
     }
-  }
   componentDidMount() {
     const editor = monaco.editor.create(document.getElementById('editor'), {
       lineNumbers: 'on',
