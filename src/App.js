@@ -122,12 +122,12 @@ class App extends Component {
     );
   }
 
-  onResize() {
+  onResize = () => {
     const width = $(window).width() / 2;
     const height = $(window).height();
     this.state.editor.layout({ width, height });
   }
-  onClickConvert() {
+  onClickConvert = () => {
     const blueprint = this.state.editor.getValue();
     const object = this.blueprintToObject(blueprint);
     // monaco.editor.setModelLanguage(this.state.editor.getModel(), 'json');
