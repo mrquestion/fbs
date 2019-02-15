@@ -38,7 +38,7 @@ class App extends Component {
     });
     this.setState({ editor });
 
-    $(window).on("resize", this.onResize);
+    $(window).on('resize', this.onResize);
     setTimeout(() => { this.onResize(); });
   }
   render() {
