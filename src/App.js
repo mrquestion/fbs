@@ -16,7 +16,7 @@ class App extends Component {
   state = {
     editor: null,
     blueprint: '',
-    json: {},
+    object: {},
   }
 
   constructor() {
@@ -64,6 +64,27 @@ class App extends Component {
                 <canvas id="canvas"></canvas>
               </div>
             </div>
+            {
+              this.state.object.blueprint ?
+              (
+            <div className="row mt-2">
+              <div className="col col-12">
+                <ul className="list-group">
+                {
+                  _.chain(this.state.object.blueprint.entities).groupBy(entity => entity.name).keys().map((name, i) => (
+                  <li className="list-group-item list-group-item-action list-group-item-dark" key={i}>
+                    <span className="badge mr-2" style={{ backgroundColor: `#${sha512(name).toString().substring(0, 6)}` }}>
+                      {_.chain(this.state.object.blueprint.entities).groupBy(entity => entity.name).value()[name].length}
+                    </span>
+                    {name}
+                  </li>
+                  )).value()
+                }
+                </ul>
+              </div>
+            </div>
+              ) : null
+            }
             <div className="row mt-2">
               <div className="col col-12">
                 <table className="table table-sm table-dark table-hover">
@@ -78,8 +99,8 @@ class App extends Component {
                   </thead>
                   <tbody>
                   {
-                    this.state.json.blueprint ?
-                    this.state.json.blueprint.entities.map((entity, i) => (
+                    this.state.object.blueprint ?
+                    this.state.object.blueprint.entities.map((entity, i) => (
                       <tr key={i}>
                         <th scope="row">{entity.entity_number}</th>
                         <td>{entity.name}</td>
@@ -87,7 +108,9 @@ class App extends Component {
                         <td>{entity.position.y}</td>
                         <td>{entity.direction}</td>
                       </tr>
-                    )) : (<tr><th scope="row"></th><td colSpan="5">Empty.</td></tr>)
+                    )) : (
+                    <tr><th scope="row"></th><td colSpan="5">Empty.</td></tr>
+                    )
                   }
                   </tbody>
                 </table>
@@ -120,7 +143,7 @@ class App extends Component {
     const l = 10;
 
     const canvas = document.getElementById('canvas');
-    $(canvas).attr({ width: w * l, height: h * l });
+    $(canvas).attr({ width: (w + 1) * l, height: (h + 1) * l });
 
     setTimeout(() => {
       const context = canvas.getContext('2d');
